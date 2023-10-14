@@ -1,0 +1,9 @@
+
+<div class="card" style="width: 14rem; height:fit-content;">
+    <img src="{{book.image}}" class="card-img-top " style=" height: 20vw;" alt="...">
+    <div class="card-body">
+      <h5 class="card-title" >{{book.title | slice:0:20}}</h5>
+      <p>${{book.price.displayValue}}</p>
+      <a href="#" class="btn btn-primary" (click)="getBooks(book)">Add</a>
+    </div>
+  </div>
