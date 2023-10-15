@@ -10,8 +10,8 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <form class="d-flex" role="search" [formGroup]="alphaForm">
+        <input class="form-control me-2" type="search" (input)="alpha()" placeholder="Search"   formControlName="alphaInput"   aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
@@ -19,7 +19,7 @@
 </nav>
 <div class=" d-flex justify-content-between ">
   <div class="d-flex flex-wrap gap-2 justify-content-center" style="width: 75%; ">
-    <div *ngFor="let book of books">
+    <div *ngFor="let book of filteredBooks">
       <app-card [book]="book" (addBook)="addData($event)"></app-card>
     </div>
   </div>
@@ -27,7 +27,7 @@
     <h1 >Total: ${{total.toFixed()}}</h1>
     <div class="cart-items d-flex gap-3 flex-column" >
       <div *ngFor="let book of booked" class="d-flex" style="gap:10px; border: 1px solid rgb(181, 181, 181); padding: 7px; border-radius: 10px; align-items: center; justify-content: space-between;">
-        <img src="{{book.obj.image}}" alt="" style="width: 6vw;">
+        <img [src]="book.obj.image" alt="" style="width: 6vw;">
         <div>
           <p>{{book.obj.title}}</p>
           <p>{{book.freq}}</p>
